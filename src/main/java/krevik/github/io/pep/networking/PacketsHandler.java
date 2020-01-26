@@ -2,7 +2,7 @@ package krevik.github.io.pep.networking;
 
 import krevik.github.io.pep.networking.messages.PacketClientOpenGuiProgrammableEnderPearl;
 import krevik.github.io.pep.networking.messages.PacketServerGivePlayerEditedPearl;
-import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.network.NetworkDirection;
@@ -35,7 +35,7 @@ public final class PacketsHandler
         HANDLER.sendToServer(msg);
     }
 
-    public static void sendTo(Object msg, ServerPlayerEntity player)
+    public static void sendTo(Object msg, EntityPlayerMP player)
     {
         if (!(player instanceof FakePlayer))
         {
@@ -44,7 +44,7 @@ public final class PacketsHandler
     }
 
     public static void sendToAll(Object msg){
-        for (ServerPlayerEntity player : ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayers())
+        for (EntityPlayerMP player : ServerLifecycleHooks.getCurrentServer().getPlayerList().getPlayers())
         {
             sendTo(msg,player);
         }

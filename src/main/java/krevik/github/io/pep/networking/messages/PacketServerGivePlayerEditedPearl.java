@@ -3,12 +3,11 @@ package krevik.github.io.pep.networking.messages;
 import krevik.github.io.pep.PEP;
 import krevik.github.io.pep.item.ProgrammableEnderPearl;
 import krevik.github.io.pep.item.ProgrammedEnderPearl;
-import net.minecraft.client.gui.screen.EditBookScreen;
 import net.minecraft.enchantment.EnchantmentData;
-import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.*;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.Hand;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkEvent;
@@ -40,12 +39,12 @@ public class PacketServerGivePlayerEditedPearl  {
         public static void handle(final PacketServerGivePlayerEditedPearl message, Supplier<NetworkEvent.Context> ctx)
         {
             ctx.get().enqueueWork(() -> {
-                ServerPlayerEntity player = ctx.get().getSender();
+                EntityPlayerMP player = ctx.get().getSender();
                 ItemStack stack = new ItemStack(PEP.PROGRAMMED_ENDER_PEARL,1);
                 ItemStack stackToGive = new ItemStack(((ProgrammedEnderPearl)stack.getItem()),1);
                 ((ProgrammedEnderPearl)stackToGive.getItem()).setTargetPos(stackToGive,message.targetPos);
                 ((ProgrammedEnderPearl)stackToGive.getItem()).setName(stackToGive,message.name);
-                ItemStack heldStack = player.getHeldItem(Hand.MAIN_HAND);
+                ItemStack heldStack = player.getHeldItem(EnumHand.MAIN_HAND);
                 if(heldStack.getItem() instanceof ProgrammableEnderPearl){
                     heldStack.shrink(1);
                     player.addItemStackToInventory(stackToGive);

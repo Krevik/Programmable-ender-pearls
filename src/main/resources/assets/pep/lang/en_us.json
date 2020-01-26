@@ -1,0 +1,15 @@
+{
+  "item.pep.programmable_ender_pearl": "Programmable Ender Pearl",
+  "item.pep.programmed_ender_pearl": "Programmed Ender Pearl",
+  
+  "pep.gui.finish": "Finish",
+  "pep.programmable_ender_pearl.gui.clear": "Clear",
+  "pep.gui.cancel": "Cancel",
+  "pep.programmable_ender_pearl.gui.position.x": "posX",
+  "pep.programmable_ender_pearl.gui.position.y": "posY",
+  "pep.programmable_ender_pearl.gui.position.z": "posZ",
+  "pep.programmable_ender_pearl.gui.name": "Name",
+  "pep.caution.no.solid": "Caution! There is no solid block within 4 blocks under target position",
+  "pep.caution.lava": "Caution! There is lava block under or at target position",
+  "pep.caution.suffocation": "Caution! There are solid blocks causing suffocation at target position"
+}

@@ -13,10 +13,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.EnderPearlItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.util.*;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -37,7 +34,7 @@ public class ProgrammableEnderPearl extends EnderPearlItem {
             }
         }
 
-        return ActionResult.func_226248_a_(lvt_4_1_);
+        return new ActionResult(ActionResultType.SUCCESS, lvt_4_1_);
     }
 
     @Override

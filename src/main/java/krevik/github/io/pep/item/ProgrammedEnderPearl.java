@@ -29,9 +29,10 @@ public class ProgrammedEnderPearl extends EnderPearlItem {
         super(p_i48501_1_.maxStackSize(1));
     }
 
+    @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity entity, Hand p_77659_3_) {
         ItemStack stack = entity.getHeldItem(p_77659_3_);
-        world.playSound((PlayerEntity)null, entity.getPosX(), entity.getPosY(), entity.getPosZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        world.playSound((PlayerEntity)null, entity.getPosition().getX(), entity.getPosition().getY(), entity.getPosition().getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
         if(stack.getOrCreateChildTag("target_pos")!=null){
             CompoundNBT nbt = stack.getOrCreateChildTag("target_pos");
@@ -51,7 +52,7 @@ public class ProgrammedEnderPearl extends EnderPearlItem {
             }
         }
 
-        return ActionResult.func_226248_a_(stack);
+        return new ActionResult(ActionResultType.SUCCESS, stack);
     }
 
     public void setTargetPos(ItemStack stack,BlockPos target){
